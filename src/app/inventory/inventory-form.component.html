@@ -1,0 +1,40 @@
+<h1>{{ title }}</h1>
+<div class="row">
+    <div class="col-md-6 well">
+        <form [formGroup]="form" (ngSubmit)="save()">
+            <fieldset>
+                <legend>
+                    Inventory
+                </legend>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input [(ngModel)]="inventory.description" name="description" #description formControlName="description" type="text" class="form-control">
+                    <div *ngIf="description.touched && !description.valid" class="alert alert-danger">
+                        Description is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Group</label>
+                    <input [(ngModel)]="inventory.group" #group formControlName="group" type="text" class="form-control">
+                    <div *ngIf="group.touched && !group.valid" class="alert alert-danger">
+                        Please type a valid group.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <select class="form-control" [(ngModel)]="inventory.location" formControlName="location" type="text">
+                        <option>Select a location</option>
+                        <option *ngFor="let phone of phoney">
+                        {{ phone }}
+                        </option>
+                    </select>
+                   
+                </div>
+                
+            </fieldset>
+            <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
+                Save
+            </button>
+        </form>
+    </div>
+</div>

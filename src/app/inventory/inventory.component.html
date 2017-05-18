@@ -1,0 +1,28 @@
+<h1>Inventory</h1>
+<p>
+    <a routerLink="/inventory/new" class="btn btn-primary">Add Inventory</a>
+</p>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Description</th>
+			<th>Group</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let inventory of inventorys">
+			<td>{{ inventory.description }}</td>
+			<td>{{ inventory.group }}</td>
+			<td>
+                <a [routerLink]="['/inventory', inventory.id]">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+			</td>
+			<td>
+                <i (click)="deleteInventory(inventory)" class="glyphicon glyphicon-remove clickable"></i>
+            </td>
+		</tr>
+	</tbody>
+</table>
