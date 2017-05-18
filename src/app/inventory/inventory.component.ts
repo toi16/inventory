@@ -14,6 +14,7 @@ export class InventoryComponent implements OnInit {
 	ngOnInit(){
 		this._service.getInventorys()
 			.subscribe(inventory => this.inventory = inventory);
+            console.log(this.inventory);
 	} 
     
     deleteInventory(inventory){

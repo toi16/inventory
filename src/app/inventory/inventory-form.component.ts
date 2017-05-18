@@ -12,7 +12,7 @@ export class InventoryFormComponent implements OnInit {
 	form: FormGroup;
     title: string;
     inventory = new Inventory(); //blank inventory object stops null error in form load
-    phoney = ['01803845350','01803845356'];
+    phoney = ['Kitchen','Bathroom','Bedroom'];
 	constructor(
         fb: FormBuilder,
         private _router: Router,
@@ -22,7 +22,7 @@ export class InventoryFormComponent implements OnInit {
 		this.form = fb.group({
 			description: ['', Validators.required],
 			group: ['', Validators.required],
-			location: []
+			location: ['', Validators.required]
 		});
 	}
     

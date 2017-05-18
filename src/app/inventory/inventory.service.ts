@@ -4,7 +4,8 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class InventoryService {
-	private _url = "http://jsonplaceholder.typicode.com/users";
+	//private _url = "http://jsonplaceholder.typicode.com/users";
+    private _url = "/assets/fake-data.html";
 
 constructor(private _http: Http){
 	}
@@ -12,6 +13,7 @@ constructor(private _http: Http){
 	getInventorys(){
 		return this._http.get(this._url)
 			.map(res => res.json());
+            
 	}
     
     getInventory(inventoryId){
