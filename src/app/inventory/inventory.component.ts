@@ -18,7 +18,6 @@ export class InventoryComponent implements OnInit {
 	} 
     
     deleteInventory(inventory){
-		console.log(inventory);
 		if (confirm("Are you sure you want to delete " + inventory.description + "?")) {
 			var index = this.inventory.indexOf(inventory)
 			// Here, with the splice method, we remove 1 object

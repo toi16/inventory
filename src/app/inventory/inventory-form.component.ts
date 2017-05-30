@@ -12,7 +12,7 @@ export class InventoryFormComponent implements OnInit {
 	form: FormGroup;
     title: string;
     inventory = new Inventory(); //blank inventory object stops null error in form load
-    phoney = ['Kitchen','Bathroom','Bedroom'];
+    locations = ['Kitchen','Bathroom','Bedroom'];
 	constructor(
         fb: FormBuilder,
         private _router: Router,
@@ -46,16 +46,13 @@ export class InventoryFormComponent implements OnInit {
                         this._router.navigate(['NotFound']);
                     }
                 });
-                console.log(this.inventory);
+                
         });
     }
     
     save(){
         var result;
-        console.log(this.inventory._id);
-        console.log(this.inventory);
-        console.log(JSON.stringify(this.inventory));
-        if (this.inventory._id) 
+         if (this.inventory._id) 
             result = this._inventoryService.updateInventory(this.inventory);
             
         else
@@ -65,6 +62,6 @@ export class InventoryFormComponent implements OnInit {
             this.form.markAsPristine();
             this._router.navigate(['inventory']);
         });
-        console.log(result);
+        
 	}
 }

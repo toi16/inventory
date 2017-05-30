@@ -24,11 +24,12 @@
                     <label>Location</label>
                     <select class="form-control" [(ngModel)]="inventory.location" formControlName="location" type="text">
                         <option>Select a location</option>
-                        <option *ngFor="let phone of phoney">
-                        {{ phone }}
+                        <option *ngFor="let location of locations">
+                        {{ location }}
                         </option>
+                        
                     </select>
-                   
+                  
                 </div>
                 
             </fieldset>
