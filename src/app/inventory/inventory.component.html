@@ -13,17 +13,17 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let inventory of inventorys">
-			<td>{{ inventory.description }}</td>
-			<td>{{ inventory.group }}</td>
-            <td>{{ inventory.location }}</td>
+		<tr *ngFor="let invent of inventory">
+			<td>{{ invent.description }}</td>
+			<td>{{ invent.group }}</td>
+            <td>{{ invent.location }}</td>
 			<td>
-                <a [routerLink]="['/inventory', inventory.id]">
+                <a [routerLink]="['/inventory', invent._id]">
                     <i class="glyphicon glyphicon-edit"></i>
                 </a>
 			</td>
 			<td>
-                <i (click)="deleteInventory(inventory)" class="glyphicon glyphicon-remove clickable"></i>
+                <i (click)="deleteInventory(invent)" class="glyphicon glyphicon-remove clickable"></i>
             </td>
 		</tr>
 	</tbody>

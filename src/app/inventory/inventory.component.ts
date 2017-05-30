@@ -14,17 +14,18 @@ export class InventoryComponent implements OnInit {
 	ngOnInit(){
 		this._service.getInventorys()
 			.subscribe(inventory => this.inventory = inventory);
-            console.log(this.inventory);
+            
 	} 
     
     deleteInventory(inventory){
+		console.log(inventory);
 		if (confirm("Are you sure you want to delete " + inventory.description + "?")) {
 			var index = this.inventory.indexOf(inventory)
 			// Here, with the splice method, we remove 1 object
             // at the given index.
             this.inventory.splice(inventory, 1);
 
-			this._service.deleteInventory(inventory.id)
+			this._service.deleteInventory(inventory._id)
 				.subscribe(null, 
 					err => {
 						alert("Could not delete the inventory.");

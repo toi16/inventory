@@ -1,7 +1,7 @@
 export class Inventory {
-    id: number;
+    _id: string;
     description: string;
     group: string;
     location: string;
-    photo: string;
+    
 }

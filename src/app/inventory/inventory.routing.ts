@@ -6,7 +6,7 @@ import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.serv
 
 export const inventoryRouting = RouterModule.forChild([
 	{ 
-		path: 'inventory/:id', 
+		path: 'inventory/:_id', 
 		component: InventoryFormComponent,
 		canDeactivate: [ PreventUnsavedChangesGuard ]  
 	},

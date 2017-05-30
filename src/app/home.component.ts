@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-    template: '<h1>Home Page</h1>'
+    templateUrl: './home.component.html'
 })
-export class HomeComponent {
 
-}
+export class HomeComponent {
+   
+
+  } 

@@ -27,15 +27,18 @@ export class InventoryFormComponent implements OnInit {
 	}
     
     ngOnInit(){
-        var id = this._route.params.subscribe(params => {
-            var id = +params["id"];
+        var _id = this._route.params.subscribe(params => {
+            var _id = params._id;
 
-              this.title = id ? "Edit Inventory" : "New Inventory"; //if there is an id title is edit otherwise new
+            if (params._id == "new") //if new inventory is selected set _id to null.
+            _id = null;
+      
+              this.title = _id ? "Edit Inventory" : "New Inventory"; //if there is an id title is edit otherwise new
         
-        if (!id)
+        if (!_id)
 			return;
             
-        this._inventoryService.getInventory(id)
+        this._inventoryService.getInventory(_id)
 			.subscribe(
                 inventory => this.inventory = inventory,
                 response => {
@@ -43,20 +46,25 @@ export class InventoryFormComponent implements OnInit {
                         this._router.navigate(['NotFound']);
                     }
                 });
+                console.log(this.inventory);
         });
     }
     
     save(){
         var result;
-        
-        if (this.inventory.id) 
+        console.log(this.inventory._id);
+        console.log(this.inventory);
+        console.log(JSON.stringify(this.inventory));
+        if (this.inventory._id) 
             result = this._inventoryService.updateInventory(this.inventory);
+            
         else
             result = this._inventoryService.addInventory(this.inventory)
-            
+
 		result.subscribe(x => {
             this.form.markAsPristine();
             this._router.navigate(['inventory']);
         });
+        console.log(result);
 	}
 }
