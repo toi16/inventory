@@ -7,6 +7,13 @@
                     Inventory
                 </legend>
                 <div class="form-group">
+                    <label>Quantity</label>
+                    <input [(ngModel)]="inventory.quantity" name="quantity" #quantity formControlName="quantity" type="number" class="form-control">
+                    <div *ngIf="quantity.touched && !quantity.dirty" class="alert alert-danger">
+                        Quantity is required.
+                    </div>
+                </div>
+                <div class="form-group">
                     <label>Description</label>
                     <input [(ngModel)]="inventory.description" name="description" #description formControlName="description" type="text" class="form-control">
                     <div *ngIf="description.touched && !description.valid" class="alert alert-danger">

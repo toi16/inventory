@@ -20,6 +20,7 @@ export class InventoryFormComponent implements OnInit {
         private _inventoryService: InventoryService
     ) {
 		this.form = fb.group({
+            quantity: ['', Validators.required],
 			description: ['', Validators.required],
 			group: ['', Validators.required],
 			location: ['', Validators.required]

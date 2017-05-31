@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { InventoryService }       from './inventory.service';
 
 @Component({
-    templateUrl: './inventory.component.html'
+    templateUrl: './inventory.component.html',
+	
 })
 export class InventoryComponent implements OnInit {
     inventory: any[];

@@ -5,6 +5,7 @@
 <table class="table table-bordered">
 	<thead>
 		<tr>
+			<th>Quantity</th>
 			<th>Description</th>
 			<th>Group</th>
             <th>Location</th>
@@ -13,7 +14,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let invent of inventory">
+		<tr *ngFor="let invent of inventory | orderBy: ['+description']">
+			<td>{{ invent.quantity }}</td>
 			<td>{{ invent.description }}</td>
 			<td>{{ invent.group }}</td>
             <td>{{ invent.location }}</td>

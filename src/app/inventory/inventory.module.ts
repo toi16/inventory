@@ -10,7 +10,7 @@ import { InventoryFormComponent }   from './inventory-form.component';
 import { InventoryComponent }      from './inventory.component';
 import { InventoryService }         from './inventory.service';
 import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.service';
-
+import { OrderBy } from '../shared/orderBy-pipe';
 
 @NgModule({
     imports: [
@@ -22,7 +22,7 @@ import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.serv
     ],
     declarations: [
         InventoryFormComponent, 
-        InventoryComponent
+        InventoryComponent, OrderBy
     ],
     exports: [
         InventoryFormComponent, 
