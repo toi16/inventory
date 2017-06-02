@@ -1,0 +1,48 @@
+<h1>{{ title }}</h1>
+<div class="row">
+    <div class="col-md-6 well">
+        <form [formGroup]="form" (ngSubmit)="save()">
+            <fieldset>
+                <legend>
+                    Settings
+                </legend>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input [(ngModel)]="setting.quantity" name="quantity" #quantity formControlName="quantity" type="number" class="form-control">
+                    <div *ngIf="quantity.touched && !quantity.dirty" class="alert alert-danger">
+                        Quantity is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input [(ngModel)]="setting.description" name="description" #description formControlName="description" type="text" class="form-control">
+                    <div *ngIf="description.touched && !description.valid" class="alert alert-danger">
+                        Description is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Group</label>
+                    <input [(ngModel)]="setting.group" #group formControlName="group" type="text" class="form-control">
+                    <div *ngIf="group.touched && !group.valid" class="alert alert-danger">
+                        Please type a valid group.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <select class="form-control" [(ngModel)]="setting.location" formControlName="location" type="text">
+                        <option>Select a location</option>
+                        <option *ngFor="let location of locations">
+                        {{ location }}
+                        </option>
+                        
+                    </select>
+                  
+                </div>
+                
+            </fieldset>
+            <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
+                Save Settings
+            </button>
+        </form>
+    </div>
+</div>
