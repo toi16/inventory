@@ -30,18 +30,10 @@ export class SettingComponent implements OnInit {
     
     
 	ngOnInit(){
-		var _id = this._route.params.subscribe(params => {
-            var _id = params._id;
-
-            if (params._id == "new") //if new inventory is selected set _id to null.
-            _id = null;
-      
-              this.title = _id ? "Edit Inventory" : "New Inventory"; //if there is an id title is edit otherwise new
+		this.title = "App Settings";
         
-        if (!_id)
-			return;
-            
-        this._service.getSetting(_id)
+                  
+        this._service.getSettings()
 			.subscribe(
                 setting => this.setting = setting,
                 response => {
@@ -49,12 +41,10 @@ export class SettingComponent implements OnInit {
                         this._router.navigate(['NotFound']);
                     }
                 });
-                
-        });
             
 	}
 
-save(){
+saveSettings(){
         var result;
          if (this.setting._id) 
             result = this._service.updateSetting(this.setting);

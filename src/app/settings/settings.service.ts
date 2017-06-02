@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SettingsService {
-	private _url = "http://localhost:3000/api/settings";
+	private _url = "http://localhost:3000/settings";
 
 constructor(private _http: Http){
 	
